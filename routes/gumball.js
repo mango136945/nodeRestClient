@@ -4,11 +4,11 @@
 var MongoClient = require('mongodb').MongoClient;
 exports.getCall = function(req, res){
 	var id=parseInt(req.params.id);
-	var userName="arpit177";
-	var password="Saibaba177";
-	MongoClient.connect("mongodb://"+userName+":"+password+"@ds061370.mongolab.com:61370/CloudFoundry_t5iovmoo_jsd9o18d", function(err, db) {
+	var userName="mangesh";
+	var password="mango1369";
+	MongoClient.connect("mongodb://"+userName+":"+password+"@ds063170.mongolab.com:63170/mango", function(err, db) {
 		  if(!err) {
-		    console.log("We are connected");
+		   
 		    var collection=db.collection('gumball');
 		    collection.find({id:id}).toArray(function(err,docs){
 		    	
@@ -29,11 +29,11 @@ exports.putCall=function(req,res){
 	
 	var countGumballs=req.body.countGumballs;
 	var id=parseInt(req.params.id);
-	var userName="arpit177";
-	var password="Saibaba177";
-	MongoClient.connect("mongodb://"+userName+":"+password+"@ds061370.mongolab.com:61370/CloudFoundry_t5iovmoo_jsd9o18d", function(err, db) {
+	var userName="mangesh";
+	var password="mango1369";
+	MongoClient.connect("mongodb://"+userName+":"+password+"@ds063170.mongolab.com:63170/mango", function(err, db) {
 		  if(!err) {
-		    console.log("We are connected");
+		    
 		    var collection=db.collection('gumball');
 		    collection.find({id:id}).toArray(function(err,docs){
 		    	
@@ -44,18 +44,12 @@ exports.putCall=function(req,res){
 		    		count--;
 		    		collection.update({id:id},{$set:{countGumballs:countGumballs}},function(err,results){
 		    			
-		    			console.log("count is ="+countGumballs);
-		    			
 		    			res.writeHead(200,{"Content-Type":"application/json"});
 				    	res.end(JSON.stringify("SuccessFull updated")+"\n");
 		    		})
-		    		
-		    		
+		    	
 		    	}
-		    	
-		    	
-		    	
-		    	
+		 
 		    });
 		  }else{
 			  
